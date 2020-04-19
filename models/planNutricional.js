@@ -1,16 +1,12 @@
-//const inputUsuario = require('../hnutricional');
-//const usuario = require('./usuario');
-const alimentos = require('./alimentos');
-
 const planesNutricional = [];
 
 module.exports = class PlanNutricional{
     constructor(desayuno,mediaManana,almuerzo,algo,cena){
-     this._desayuno = desayuno;
-     this._mediaManana = mediaManana;
-     this._almuerzo = almuerzo;
-     this._algo = algo;
-     this._cena = cena;
+      this._desayuno = desayuno;
+      this._mediaManana = mediaManana;
+      this._almuerzo = almuerzo;
+      this._algo = algo;
+      this._cena = cena;
    }
    
    get desayuno() {
@@ -32,19 +28,11 @@ module.exports = class PlanNutricional{
    get cena(){
      return this._cena;
    }
- 
-   /*get usuarioPlan(){
-     return this._usuarioPlan;
-   }
- 
-   agregarUsuario(user){
-     return this._usuarioPlan = user.email;
-   }*/
    
   guardar(){
     planesNutricional.push(this);
   }  
-  
- };
+
+};
  
 

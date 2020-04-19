@@ -1,24 +1,16 @@
 const usuarios = [];
 
 module.exports = class Usuario{
-    constructor(nombre,email,password){
+    constructor(nombre,email,password,tienePlan,intolerancias){
       this._nombre = nombre;
       this._email = email;
       this._password = password;
+      this._tienePlan = tienePlan;
       this._id = 0;
       this._planNutricional;
-      this._minuta = {
-        recetasPlan: {
-           desayuno: [],
-           mediaMañana: [],
-           almuerzo: [],
-           algo: [],
-           cena: [],
-         },
-        listaMercado: {
-
-        }
-      };
+      this._intolerancias;
+      this._listaAlimentos;
+      this._minuta;
     }
   
     get nombre(){
@@ -32,6 +24,10 @@ module.exports = class Usuario{
     get password(){
       return this._password;
     }
+
+    get tienePlan(){
+      return this._tienePlan;
+    }
   
     get planNutricional(){
       return this._planNutricional;
@@ -41,28 +37,24 @@ module.exports = class Usuario{
       return this._minuta;
     }
 
-    get recetasPlan(){
-      return this._minuta.recetasPlan;
+    get listaAlimentos(){
+      return this._listaAlimentos;
     }
     
-    /*get mediaMañana(){
-      return this._minuta.mediaMañana;
+    set tienePlanNutricional(tienePlan){
+      this._tienePlanNutricional  = tienePlan;
     }
-    
-    get almuerzo(){
-      return this._minuta.almuerzo;
-    }
-    
-    get algo(){
-      return this._minuta.algo;
-    } 
 
-    get cena(){
-      return this._minuta.cena;
-    } */
+    set planNutricional(plan){
+      this._planNutricional = plan;
+    }
 
-    set planNutricional(newPlanNutricional){
-      this._planNutricional  = newPlanNutricional;
+    set listaAlimentos(lista){
+      this._listaAlimentos = lista;
+    }
+
+    set minuta(minuta){
+      this._minuta = minuta;
     }
 
     guardar(){
@@ -70,40 +62,17 @@ module.exports = class Usuario{
     }
 
     agregarPlanNutricional(planNutricional){
-      this.planNutricional = Object.assign(planNutricional)
+      this._planNutricional = Object.assign(planNutricional);
     }
 
-    agregarRecetasComida(comidaDia,listaRecetas,diasPlan){
-      const recetasComidaDia = this._minuta.recetasPlan[comidaDia];
-      let recetasAleatorio = [];
-      let recetasUnicas = new Set();
-    
-      while(recetasUnicas.size < diasPlan){
-         let currentReceta = listaRecetas[Math.floor(Math.random() * listaRecetas.length)];
-         recetasAleatorio.push(currentReceta);
-         recetasUnicas = new Set(recetasAleatorio);
-      } 
-
-      for(let receta of recetasUnicas){
-         recetasComidaDia.push(receta);
-      }
-    }
-
-    crearListaMercado(){
-      const listaIngredientes = [];
-      const listaMer = [];
-      for(let comidaDia in this.minuta.recetasPlan){
-        let recetasComida = this.minuta.recetasPlan[comidaDia];
-        recetasComida.forEach(receta => {
-          receta.cantidadIngredientes.forEach(recetaIngredientes =>{
-            listaIngredientes.push([recetaIngredientes.nombre,recetaIngredientes.cantidad,recetaIngredientes.medidaCantidad]);            
-          })
-        })
-      }
-     console.log(listaMercado)     
+    agregarLista(lista){
+      this._listaAlimentos = lista;
     }
     
-    for(let i = 0; i)
+    agregarMinuta(minuta){
+      this._minuta = Object.assign(minuta);
+    }
+
 };
 
   
