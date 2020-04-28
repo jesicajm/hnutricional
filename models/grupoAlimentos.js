@@ -13,4 +13,6 @@ for(let i = 0; i< grupoAlimentos.length; i++){
 
 //console.log(tipoAlimentos.get('leche'));
 
+tipoAlimentos.set('pollo','carnes');
+
 module.exports = tipoAlimentos;

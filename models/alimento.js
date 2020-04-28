@@ -1,7 +1,8 @@
 const alimentos = [];
 
 class Alimento{
-    constructor(nombre,comida,preparacion){
+    constructor(nombrePreparacion,nombre,comida,preparacion){
+      this._nombrePreparacion = nombrePreparacion;
       this._nombre = nombre;
       this._comida = comida;
       this._preparacion = preparacion;
@@ -10,6 +11,10 @@ class Alimento{
       this._ingredientes = [];
     }
   
+    get nombrePreparacion(){
+      return this._nombrePreparacion;
+    }
+
     get nombre(){
       return this._nombre;
     }
@@ -34,6 +39,7 @@ class Alimento{
       return this._ingredientes;
     }
 
+
     set comida(comida){
         this._comida = comida;
     }
@@ -42,9 +48,13 @@ class Alimento{
       this._tipoAlimento = tipo;
     }
 
-    agregarIngrediente(nombre,unidadMedida,cantidad){
-      this._ingredientes.push([nombre,unidadMedida,cantidad]);
+    agregarIngrediente(nombre,cantidad,unidadMedida){
+      this._ingredientes.push([nombre,cantidad,unidadMedida]);
     }
+
+    /*clasificarTipoAlimento(tipo){
+      this.tipoAlimento = tipo
+    }*/
     
     save(){
       alimentos.push(this);
