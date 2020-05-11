@@ -9,6 +9,16 @@ const minuta = {
 
 _menuComida:{},
 
+_listaMercado:{
+   congelados:[],
+   lacteos:[],
+   arrozPasta:[],
+   pescaderia:[],
+   fruteria:[],
+   carniceria:[],
+   conservasAceitesCondimentos:[]
+},
+
 get desayuno(){
   return this._comida.desayuno;
 },

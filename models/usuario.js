@@ -1,6 +1,6 @@
 const usuarios = [];
 
-module.exports = class Usuario{
+class Usuario{
     constructor(nombre,email,password,tienePlan,intolerancias){
       this._nombre = nombre;
       this._email = email;
@@ -75,6 +75,6 @@ module.exports = class Usuario{
 
 };
 
-  
-
+exports.Usuario = Usuario;
+exports.usuarios = usuarios;
 

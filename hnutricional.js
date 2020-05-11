@@ -1,5 +1,5 @@
 const moment = require('moment');
-const Usuario = require('./models/usuario');
+const modelUsuario = require('./models/usuario');
 const PlanNutricional = require('./models/planNutricional');
 const distribucionComida = require('./models/distribucionComidas');
 const Alimento = require('./models/alimento');
@@ -120,7 +120,6 @@ verdurasSalteadas.agregarIngrediente('zanahoria','xxx','xxx');
 const ensaladaMango = new Alimento('ensalada de mango','mango','almuerzo','xxx');
 ensaladaMango.agregarIngrediente('mango','xxx','xxx');
 const polloTroceadoEnSalsa = new Alimento('pollo troceado en salsa','pollo','almuerzo','xxx');
-polloTroceadoEnSalsa.agregarIngrediente('pollo','xxx','xxx');
 polloTroceadoEnSalsa.agregarIngrediente('pollo','700','gr');
 polloTroceadoEnSalsa.agregarIngrediente('zanahoria',2,'unidad');
 const polloConChampiñiones = new Alimento('pollo con champiniones','pollo','almuerzo','xxx');
@@ -190,7 +189,7 @@ clasificarAlimentoGuardar(ensaladaTomate);
 const alimentos = Alimento.buscarTodos();
 
 //crear usuario plan nutricional 
-const usuario = new Usuario(nombre,email,password,tienePlanNutricional,intolerancias);
+const usuario = new modelUsuario.Usuario(nombre,email,password,tienePlanNutricional,intolerancias);
 const planNutricional = new PlanNutricional(desayuno,mediaManana,almuerzo,algo,cena);
 
 const siTienePlanAgregar = (respuestaTienePlan) => {
@@ -202,8 +201,9 @@ const siTienePlanAgregar = (respuestaTienePlan) => {
 }
 
 siTienePlanAgregar(tienePlanNutricional);
+usuario.guardar();
 
-
+console.log(usuario);
 //crear lista de alimentos personalizados
 
 const agregarAlimentoListaUsuario = (listaIntolerancias) => {
@@ -227,8 +227,7 @@ const agregarAlimentoListaUsuario = (listaIntolerancias) => {
 usuario.agregarLista(agregarAlimentoListaUsuario(intolerancias));
 //console.log(usuario.listaAlimentos);
 
-
-// agregar preparacion alimentos minuta
+// agregar preparacion alimentos por tipo alimento segun plan nutricional
 
 const guardarTipoAlimentoPlan = (listaAlimentos, nombreComida) => {
   
@@ -258,8 +257,7 @@ guardarAlimentoPlanUsuario(usuario,'almuerzo',intolerancias);
 guardarAlimentoPlanUsuario(usuario,'algo',intolerancias);
 guardarAlimentoPlanUsuario(usuario,'cena',intolerancias);
 
-
-//console.log(minuta.menuAlmuerzo);
+// agregar dias minuta a menuComida segun fecha inicial y dias menus
 
 const asignarDiaSemana = (fecha) => {
   let diaSemana = fecha.day();
@@ -351,16 +349,26 @@ for(let diaMenu in minuta._menuComida){
   //minuta.alimentoAleatorioDesdeComida('cena','menuCena');
 }
 
-console.log(minuta._comida.almuerzo);
+//console.log(minuta._comida.almuerzo);
 console.log(minuta._menuComida);
 
-console.log(minuta._menuComida['Domingo 26 abril'].menuAlmuerzo);
-console.log(minuta._menuComida['Lunes 27 abril'].menuAlmuerzo);
-console.log(minuta._menuComida['Martes 28 abril'].menuAlmuerzo);
-console.log(minuta._menuComida['Miercoles 29 abril'].menuAlmuerzo);
-console.log(minuta._menuComida['Jueves 30 abril'].menuAlmuerzo);
+console.log(minuta._menuComida['Domingo 26 abril']);
+console.log(minuta._menuComida['Domingo 26 abril'].menuAlmuerzo[0].ingredientes);
 
+const crearListaMercado = (comidaDia) => {
+  let listaMercado = [];
+  for(let dia in minuta._menuComida){
+    let comida = minuta._menuComida[dia][comidaDia];
+      for(let i = 0; i < comida.length; i++){
+        listaMercado.push(comida[i].ingredientes);
+      }
+  }    
+  return listaMercado;
+}
 
+let lista = crearListaMercado('menuAlmuerzo')
 
+mergeSort(lista,0,lista.length);
+console.log(lista);
 
 
