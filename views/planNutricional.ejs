@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crear Usuario</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src="../appVue.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <form  action = "/plan-nutricional"  method = "POST"></form>
+        <p>¿Tienes plan nutricional?</p>
+            <label for="respuetasi">Si</label>
+            <input id="respuestasi" name="tienePlan" type="radio" value="si"/>
+            <br>
+            <label for="respuestano">No</label>
+            <input id="respuestano" name="tienePlan" type="radio" value="no"/>
+            <br>
+                <input type="hidden" name="usuarioId" value="<%= usuario._id %>">
+                   <% if(usuario) { %>  
+                        <p>Seleccione tipo alimentos</p>
+                        <p>Desayuno</p>
+                        <label for="carnes">Carnes</label>
+                        <input id="carnes" name="desayuno" type="checkbox" value="carnes">
+                        <br>
+                        <label for="cereales">Cereales</label>
+                        <input id="cereales" name="desayuno" type="checkbox" value="cereales">
+                        <br>
+                        <label for="frutas">Frutas</label>
+                        <input id="frutas" name="desayuno" type="checkbox" value="frutas">
+                        <br>
+                        <label for="grasas">Grasas</label>
+                        <input id="grasas" name="desayuno" type="checkbox" value="grasas">
+                        <br>
+                        <label for="lacteos">Lacteos</label>
+                        <input id="lacteos" name="desayuno" type="checkbox" value="lacteos">
+                        <br>
+                        <label for="leguminasas">Leguminosas</label>
+                        <input id="leguminosas" name="desayuno" type="checkbox" value="leguminasas">
+                        <br>
+                        <label for="sustitutos">Sustitutos</label>
+                        <input id="sustitutos" name="desayuno" type="checkbox" value="sustitutos">
+                        <br>
+                        <label for="verduras">Verduras</label>
+                        <input id="verduras" name="desayuno" type="checkbox" value="verduras">
+                        <br>
+                        <p>Media mañana</p>
+                        <label for="carnes">Carnes</label>
+                        <input id="carnes" name="mediaManana" type="checkbox" value="carnes">
+                        <br>
+                        <label for="cereales">Cereales</label>
+                        <input id="cereales" name="mediaManana" type="checkbox" value="cereales">
+                        <br>
+                        <label for="frutas">Frutas</label>
+                        <input id="frutas" name="mediaManana" type="checkbox" value="frutas">
+                        <br>
+                        <label for="grasas">Grasas</label>
+                        <input id="grasas" name="mediaManana" type="checkbox" value="grasas">
+                        <br>
+                        <label for="lacteos">Lacteos</label>
+                        <input id="lacteos" name="mediaManana" type="checkbox" value="lacteos">
+                        <br>
+                        <label for="leguminasas">Leguminosas</label>
+                        <input id="leguminosas" name="mediaManana" type="checkbox" value="leguminasas">
+                        <br>
+                        <label for="sustitutos">Sustitutos</label>
+                        <input id="sustitutos" name="mediaManana" type="checkbox" value="sustitutos">
+                        <br>
+                        <label for="verduras">Verduras</label>
+                        <input id="verduras" name="mediaMañana" type="checkbox" value="verduras">
+                        <br>
+                        <p>Almuerzo</p>
+                        <label for="carnes">Carnes</label>
+                        <input id="carnes" name="almuerzo" type="checkbox" value="carnes">
+                        <br>
+                        <label for="cereales">Cereales</label>
+                        <input id="cereales" name="almuerzo" type="checkbox" value="cereales">
+                        <br>
+                        <label for="frutas">Frutas</label>
+                        <input id="frutas" name="almuerzo" type="checkbox" value="frutas">
+                        <br>
+                        <label for="grasas">Grasas</label>
+                        <input id="grasas" name="almuerzo" type="checkbox" value="grasas">
+                        <br>
+                        <label for="lacteos">Lacteos</label>
+                        <input id="lacteos" name="almuerzo" type="checkbox" value="lacteos">
+                        <br>
+                        <label for="leguminasas">Leguminosas</label>
+                        <input id="leguminosas" name="almuerzo" type="checkbox" value="leguminasas">
+                        <br>
+                        <label for="sustitutos">Sustitutos</label>
+                        <input id="sustitutos" name="almuerzo" type="checkbox" value="sustitutos">
+                        <br>
+                        <label for="verduras">Verduras</label>
+                        <input id="verduras" name="almuerzo" type="checkbox" value="verduras">
+                        <br>
+                        <p>Algo</p>
+                        <label for="carnes">Carnes</label>
+                        <input id="carnes" name="algo" type="checkbox" value="carnes">
+                        <br>
+                        <label for="cereales">Cereales</label>
+                        <input id="cereales" name="algo" type="checkbox" value="cereales">
+                        <br>
+                        <label for="frutas">Frutas</label>
+                        <input id="frutas" name="algo" type="checkbox" value="frutas">
+                        <br>
+                        <label for="grasas">Grasas</label>
+                        <input id="grasas" name="algo" type="checkbox" value="grasas">
+                        <br>
+                        <label for="lacteos">Lacteos</label>
+                        <input id="lacteos" name="algo" type="checkbox" value="lacteos">
+                        <br>
+                        <label for="leguminasas">Leguminosas</label>
+                        <input id="leguminosas" name="algo" type="checkbox" value="leguminasas">
+                        <br>
+                        <label for="sustitutos">Sustitutos</label>
+                        <input id="sustitutos" name="algo" type="checkbox" value="sustitutos">
+                        <br>
+                        <label for="verduras">Verduras</label>
+                        <input id="verduras" name="algo" type="checkbox" value="verduras">
+                        <br>
+                        <p>Cena</p>
+                        <label for="carnes">Carnes</label>
+                        <input id="carnes" name="cena" type="checkbox" value="carnes">
+                        <br>
+                        <label for="cereales">Cereales</label>
+                        <input id="cereales" name="cena" type="checkbox" value="cereales">
+                        <br>
+                        <label for="frutas">Frutas</label>
+                        <input id="frutas" name="cena" type="checkbox" value="frutas">
+                        <br>
+                        <label for="grasas">Grasas</label>
+                        <input id="grasas" name="cena" type="checkbox" value="grasas">
+                        <br>
+                        <label for="lacteos">Lacteos</label>
+                        <input id="lacteos" name="cena" type="checkbox" value="lacteos">
+                        <br>
+                        <label for="leguminasas">Leguminosas</label>
+                        <input id="leguminosas" name="cena" type="checkbox" value="leguminasas">
+                        <br>
+                        <label for="sustitutos">Sustitutos</label>
+                        <input id="sustitutos" name="cena" type="checkbox" value="sustitutos">
+                        <br>
+                        <label for="verduras">Verduras</label>
+                        <input id="verduras" name="cena" type="checkbox" value="verduras">
+                        <br>
+                        <br>
+                        <label for="intolerancia">Ingrese intolerancia alimento</label>
+                        <br>
+                        <input  type = "text"  name = "intolerancias" id="intolerancia"/> 
+                        <br>
+                        <p>Planificar Menus desde: </p>
+                        <input id="date" type="date"name='fechaInicial'>
+                        <p>Planificar Menus hasta: </p>
+                        <input id="date" type="date" name='fechaFinal'>
+                        <br>
+                        <br>
+                        <button type = "submit"  value = "Enviar">Enviar</botton>
+                        </form> 
+                    <% } else { %>
+                        <br>
+                        <label for="intolerancia">Ingrese intolerancia alimento</label>
+                        <br>
+                        <input  type = "text"  name = "intolerancias" id="intolerancia"/> 
+                        <br>
+                        <p>Planificar Menus desde: </p>
+                        <input id="date" type="date" name='fechaInicial'>
+                        <p>Planificar Menus hasta: </p>
+                        <input id="date" type="date" name='fechaFinal'>
+                        <br>
+                        <br>
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>"> 
+                        <button type = "submit"  value = "Enviar">Enviar</botton>
+                        </form> 
+                    <% } %>   
+    </div>    
+</body>
+</html>

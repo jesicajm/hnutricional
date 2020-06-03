@@ -39,7 +39,6 @@ class Alimento{
       return this._ingredientes;
     }
 
-
     set comida(comida){
         this._comida = comida;
     }
