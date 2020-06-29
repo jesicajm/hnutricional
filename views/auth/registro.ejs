@@ -10,6 +10,9 @@
 </head>
 <body>
     <div>
+        <% if(errorMessage) {%>
+            <div><%= errorMessage %></div>
+        <% } %> 
         <form  action = "/registro"  method = "POST">
             <label for="nombre">¿Cuál es tu nombre?</label>
             <br>

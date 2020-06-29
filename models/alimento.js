@@ -1,5 +1,37 @@
-const alimentos = [];
+const mongoose = require('mongoose'); 
 
+const Schema = mongoose.Schema;
+
+const preparacionAlimentoSchema = new Schema({
+  nombrePreparacion : {
+    type : String,
+    required : true
+  },
+  nombreAlimento : {
+    type : String,
+    required : true
+  },
+  tipoComida : {
+    type : String,
+    required : true
+  },
+  preparacion : {
+    type : String,
+    required : true
+  },
+  ingredientes : [
+      {
+      nombre:{type:String, required:true},
+      cantidad : {type:Number, required:true},
+      unidadMedida: {type:String, required:true}
+      }
+  ]
+});
+
+
+
+
+/*
 class Alimento{
     constructor(nombrePreparacion,nombre,comida,preparacion){
       this._nombrePreparacion = nombrePreparacion;
@@ -51,18 +83,14 @@ class Alimento{
       this._ingredientes.push([nombre,cantidad,unidadMedida]);
     }
 
-    /*clasificarTipoAlimento(tipo){
+    clasificarTipoAlimento(tipo){
       this.tipoAlimento = tipo
-    }*/
+    }
     
     save(){
       alimentos.push(this);
     }
 
-    static buscarTodos(){
-      return alimentos;
-    }
+};*/
 
-};
-
-module.exports = Alimento;
+module.exports = mongoose.model('PreparacionAlimento', preparacionAlimentoSchema);

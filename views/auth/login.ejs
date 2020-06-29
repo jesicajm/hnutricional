@@ -10,6 +10,9 @@
 </head>
 <body>
     <div>
+        <% if(errorMessage) {%>
+            <div><%= errorMessage %></div>
+        <% } %>    
         <form action = "/login" method = "POST">
             <label for="correo">¿Cuál es tu email?</label>
             <br>
@@ -19,8 +22,12 @@
             <br>
             <br>
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-            <button type = "submit"  value = "Enviar">Enviar</botton>
-        </form>             
+            <button type = "submit" value = "Enviar">Enviar</botton>
+        </form>  
+        <br>    
+        <div>
+            <a href="/reset">Reestablecer Contraseña</a>                   
+        </div>
     </div>    
 </body>
 </html>

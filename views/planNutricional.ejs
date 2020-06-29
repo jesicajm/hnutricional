@@ -10,16 +10,8 @@
 </head>
 <body>
     <div id="app">
-        <form  action = "/plan-nutricional"  method = "POST"></form>
-        <p>¿Tienes plan nutricional?</p>
-            <label for="respuetasi">Si</label>
-            <input id="respuestasi" name="tienePlan" type="radio" value="si"/>
-            <br>
-            <label for="respuestano">No</label>
-            <input id="respuestano" name="tienePlan" type="radio" value="no"/>
-            <br>
-                <input type="hidden" name="usuarioId" value="<%= usuario._id %>">
-                   <% if(usuario) { %>  
+        <form  action = "/plan-nutricional"  method = "POST">
+                   <% if(usuario.tienePlan === 'si') { %>  
                         <p>Seleccione tipo alimentos</p>
                         <p>Desayuno</p>
                         <label for="carnes">Carnes</label>
@@ -157,6 +149,7 @@
                         <input id="date" type="date" name='fechaFinal'>
                         <br>
                         <br>
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>"> 
                         <button type = "submit"  value = "Enviar">Enviar</botton>
                         </form> 
                     <% } else { %>
